@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Container, Paper, Typography, Box, ThemeProvider, createTheme, Button } from '@mui/material'
+import { Container, Paper, Typography, Box, ThemeProvider, createTheme, Button, Grid } from '@mui/material'
 import { Code, Wand2 } from 'lucide-react'
 import { ButtonPreview, CodeOutput, StyleControls } from './components'
 
@@ -39,22 +39,37 @@ function App() {
 
   return (
     <ThemeProvider theme={theme}>
-     <Container maxWidth="lg" sx={{ py: 4 }}>
+     <Container maxWidth="xl" sx={{ py: 4 }}>
         <Box sx={{ textAlign: 'center', mb: 4, display: 'flex', justifyContent: 'center', alignItems: 'center', gap: 2 }}>
           <Wand2 size={32} />
           <Typography variant="h4">Button Generator</Typography>
         </Box>
 
-        <Paper elevation={2} sx={{ p: 3, mb: 4 }}>
-          <ButtonPreview buttonStyle={buttonStyle}/>
-        </Paper>
+        <Grid container spacing={3}>
+          <Grid item xs={12} md={6}>
+            <Paper elevation={2}>
+              <StyleControls buttonStyle={buttonStyle} setButtonStyle={setButtonStyle}/>
+            </Paper>
+          </Grid>
 
-        <Paper elevation={2}>
-          <StyleControls buttonStyle={buttonStyle} setButtonStyle={setButtonStyle}/>
-        </Paper>
+          <Grid item xs={12} md={6}>
+            <Grid container spacing={3}>
 
-        <CodeOutput buttonStyle={buttonStyle}/>
+              <Grid item xs={12}>
+                <Paper elevation={2} sx={{ p: 3 }}>
+                  <ButtonPreview buttonStyle={buttonStyle}/>
+                </Paper>
+              </Grid>
 
+              <Grid item xs={12}>
+                <Paper elevation={2} sx={{ p: 3 }}>
+                  <CodeOutput buttonStyle={buttonStyle}/>
+                </Paper>
+              </Grid>
+            </Grid>
+
+          </Grid>
+        </Grid>
      </Container>
     </ThemeProvider>
   )

@@ -29,7 +29,7 @@ export const CodeOutput = ({ buttonStyle }) => {
 
 
   return (
-    <Box sx={{ mt: 4 }}>
+    <Box>
       <Typography variant="h6" gutterBottom>Generate CSS Code</Typography>
       <Paper elevation={3} sx={{ bgcolor: '#1e1e1e' }}>
         <SyntaxHighlighter language="css" style={atomOneDark} customStyle={{ margin: 0, padding: '20px' }}>
