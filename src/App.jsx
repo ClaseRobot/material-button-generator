@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { Container, Paper, Typography, Box, ThemeProvider, createTheme, Button, Grid } from '@mui/material'
-import { Code, Wand2 } from 'lucide-react'
+import { Wand2 } from 'lucide-react'
 import { ButtonPreview, CodeOutput, StyleControls } from './components'
 import Footer from './components/Footer'
 
